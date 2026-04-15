@@ -1,0 +1,15 @@
+node_modules/
+.expo/
+dist/
+web-build/
+
+# Environment — never commit real credentials
+.env
+.env.local
+
+# iOS/Android native builds
+ios/
+android/
+
+# macOS
+.DS_Store
