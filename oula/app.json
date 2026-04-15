@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "Oula",
+    "slug": "oula",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#FAF9F7"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "app.oula",
+      "infoPlist": {
+        "UIBackgroundModes": ["audio"],
+        "NSMicrophoneUsageDescription": "Oula needs microphone access to record voice notes for your friends.",
+        "NSPhotoLibraryUsageDescription": "Oula needs photo library access to set your profile photo.",
+        "NSCameraUsageDescription": "Oula needs camera access to take a profile photo."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#FAF9F7"
+      },
+      "package": "app.oula",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.VIBRATE"
+      ]
+    },
+    "scheme": "oula",
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "color": "#1A1A1A",
+          "sounds": []
+        }
+      ],
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Oula needs microphone access to record voice notes for your friends."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Oula needs photo library access to set your profile photo.",
+          "cameraPermission": "Oula needs camera access to take a profile photo."
+        }
+      ]
+    ]
+  }
+}
