@@ -5,8 +5,10 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+    "newArchEnabled": true,
     "splash": {
-      "backgroundColor": "#FAF9F7"
+      "backgroundColor": "#FAF9F7",
+      "resizeMode": "contain"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -53,7 +55,8 @@
           "photosPermission": "Oula needs photo library access to set your profile photo.",
           "cameraPermission": "Oula needs camera access to take a profile photo."
         }
-      ]
+      ],
+      "expo-font"
     ]
   }
 }

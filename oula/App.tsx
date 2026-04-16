@@ -7,14 +7,14 @@ import {
   DM_Sans_500Medium,
   DM_Sans_700Bold,
 } from '@expo-google-fonts/dm-sans';
-import * as SplashScreen from 'expo-splash-screen';
+import { preventAutoHideAsync, hideAsync } from 'expo-splash-screen';
 import * as Notifications from 'expo-notifications';
 
 import { AuthProvider } from './src/context/AuthContext';
 import RootNavigator from './src/navigation';
 
 // Keep splash visible until fonts + auth load
-SplashScreen.preventAutoHideAsync();
+preventAutoHideAsync();
 
 export default function App() {
   const [appReady, setAppReady] = useState(false);
@@ -33,7 +33,7 @@ export default function App() {
 
   const onLayoutRootView = useCallback(async () => {
     if (appReady) {
-      await SplashScreen.hideAsync();
+      await hideAsync();
     }
   }, [appReady]);
 
