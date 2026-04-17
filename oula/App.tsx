@@ -1,5 +1,4 @@
-import 'react-native-url-polyfill/auto';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { enableScreens } from 'react-native-screens';
@@ -9,51 +8,34 @@ import {
   DMSans_500Medium,
   DMSans_700Bold,
 } from '@expo-google-fonts/dm-sans';
-import { preventAutoHideAsync, hideAsync } from 'expo-splash-screen';
+import * as SplashScreen from 'expo-splash-screen';
 import * as Notifications from 'expo-notifications';
 
 import { AuthProvider } from './src/context/AuthContext';
 import RootNavigator from './src/navigation';
 
-// Must be called before any navigation renders
 enableScreens();
 
-// Keep splash visible until fonts + auth load
-preventAutoHideAsync();
+// Prevent flash — hide as soon as the JS bundle mounts
+SplashScreen.preventAutoHideAsync().catch(() => {});
 
 export default function App() {
-  const [appReady, setAppReady] = useState(false);
-
-  const [fontsLoaded, fontError] = useFonts({
-    DMSans_400Regular,
-    DMSans_500Medium,
-    DMSans_700Bold,
-  });
+  // Load fonts in the background — app renders immediately regardless
+  useFonts({ DMSans_400Regular, DMSans_500Medium, DMSans_700Bold });
 
   useEffect(() => {
-    if (fontsLoaded || fontError) {
-      setAppReady(true);
-    }
-  }, [fontsLoaded, fontError]);
-
-  const onLayoutRootView = useCallback(async () => {
-    if (appReady) {
-      await hideAsync();
-    }
-  }, [appReady]);
-
-  useEffect(() => {
-    const responseSub = Notifications.addNotificationResponseReceivedListener(
-      (_response) => {},
-    );
-    return () => responseSub.remove();
+    // Hide splash screen right away; fonts apply once loaded without blocking
+    SplashScreen.hideAsync().catch(() => {});
   }, []);
 
-  if (!appReady) return null;
+  useEffect(() => {
+    const sub = Notifications.addNotificationResponseReceivedListener(() => {});
+    return () => sub.remove();
+  }, []);
 
   return (
     <SafeAreaProvider>
-      <View style={styles.root} onLayout={onLayoutRootView}>
+      <View style={styles.root}>
         <AuthProvider>
           <RootNavigator />
         </AuthProvider>
@@ -63,8 +45,5 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: '#FAF9F7',
-  },
+  root: { flex: 1, backgroundColor: '#FAF9F7' },
 });

@@ -1,4 +1,5 @@
 import React from 'react';
+import { View, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as Linking from 'expo-linking';
@@ -97,7 +98,13 @@ function MainNavigator() {
 export default function RootNavigator() {
   const { profile, loading } = useAuth();
 
-  if (loading) return null;
+  if (loading) {
+    return (
+      <View style={{ flex: 1, backgroundColor: '#FAF9F7', alignItems: 'center', justifyContent: 'center' }}>
+        <ActivityIndicator color="#1A1A1A" />
+      </View>
+    );
+  }
 
   return (
     <NavigationContainer linking={linking}>
