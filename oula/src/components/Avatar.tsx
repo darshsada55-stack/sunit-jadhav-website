@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   initial: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     color: '#1A1A1A',
     textAlign: 'center',
     includeFontPadding: false,

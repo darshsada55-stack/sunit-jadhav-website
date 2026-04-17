@@ -177,14 +177,14 @@ const styles = StyleSheet.create({
     marginBottom: 36,
   },
   title: {
-    fontFamily: 'DM_Sans_700Bold',
+    fontFamily: 'DMSans_700Bold',
     fontSize: 28,
     color: '#1A1A1A',
     letterSpacing: -0.5,
     marginBottom: 8,
   },
   subtitle: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 14,
     color: '#8A8A8A',
     lineHeight: 20,
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 16,
     lineHeight: 18,
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
   },
   form: {
     marginBottom: 32,
@@ -228,14 +228,14 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   label: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     fontSize: 12,
     color: '#8A8A8A',
     letterSpacing: 0.5,
     textTransform: 'uppercase',
   },
   input: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 16,
     color: '#1A1A1A',
     backgroundColor: '#F0EFED',
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
   },
   fieldHint: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 12,
     color: '#BDBDBD',
     marginTop: 4,
@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   buttonText: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     fontSize: 16,
     color: '#FFFFFF',
     letterSpacing: 0.2,

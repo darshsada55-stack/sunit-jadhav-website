@@ -386,7 +386,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   backArrow: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 22,
     color: '#1A1A1A',
   },
@@ -396,7 +396,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   headerName: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     fontSize: 15,
     color: '#1A1A1A',
   },
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
     paddingTop: 80,
   },
   emptyChatText: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 14,
     color: '#BDBDBD',
     textAlign: 'center',
@@ -438,18 +438,18 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   uploadingText: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 13,
     color: '#8A8A8A',
   },
   durationTimer: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     fontSize: 16,
     color: '#E05050',
     letterSpacing: 1,
   },
   holdHint: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 12,
     color: '#BDBDBD',
     marginTop: 4,

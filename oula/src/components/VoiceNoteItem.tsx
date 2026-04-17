@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   duration: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 11,
   },
   durationSent: {
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     color: '#BDBDBD',
   },
   playedLabel: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 10,
     color: '#BDBDBD',
     letterSpacing: 0.3,
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   expiredText: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 13,
     color: '#BDBDBD',
     fontStyle: 'italic',

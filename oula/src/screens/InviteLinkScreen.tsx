@@ -94,14 +94,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontFamily: 'DM_Sans_700Bold',
+    fontFamily: 'DMSans_700Bold',
     fontSize: 28,
     color: '#1A1A1A',
     letterSpacing: -0.5,
     marginBottom: 10,
   },
   subtitle: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 16,
     color: '#8A8A8A',
     lineHeight: 24,
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   linkText: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 15,
     color: '#1A1A1A',
     letterSpacing: 0.1,
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   shareButtonText: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     fontSize: 16,
     color: '#FFFFFF',
     letterSpacing: 0.2,
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   skipText: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 15,
     color: '#8A8A8A',
   },

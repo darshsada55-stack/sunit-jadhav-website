@@ -1,17 +1,22 @@
 import 'react-native-url-polyfill/auto';
 import React, { useCallback, useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { enableScreens } from 'react-native-screens';
 import { useFonts } from 'expo-font';
 import {
-  DM_Sans_400Regular,
-  DM_Sans_500Medium,
-  DM_Sans_700Bold,
+  DMSans_400Regular,
+  DMSans_500Medium,
+  DMSans_700Bold,
 } from '@expo-google-fonts/dm-sans';
 import { preventAutoHideAsync, hideAsync } from 'expo-splash-screen';
 import * as Notifications from 'expo-notifications';
 
 import { AuthProvider } from './src/context/AuthContext';
 import RootNavigator from './src/navigation';
+
+// Must be called before any navigation renders
+enableScreens();
 
 // Keep splash visible until fonts + auth load
 preventAutoHideAsync();
@@ -20,9 +25,9 @@ export default function App() {
   const [appReady, setAppReady] = useState(false);
 
   const [fontsLoaded, fontError] = useFonts({
-    DM_Sans_400Regular,
-    DM_Sans_500Medium,
-    DM_Sans_700Bold,
+    DMSans_400Regular,
+    DMSans_500Medium,
+    DMSans_700Bold,
   });
 
   useEffect(() => {
@@ -37,12 +42,9 @@ export default function App() {
     }
   }, [appReady]);
 
-  // Set up notification listeners
   useEffect(() => {
     const responseSub = Notifications.addNotificationResponseReceivedListener(
-      (_response) => {
-        // Could deep link to relevant screen here in v2
-      },
+      (_response) => {},
     );
     return () => responseSub.remove();
   }, []);
@@ -50,11 +52,13 @@ export default function App() {
   if (!appReady) return null;
 
   return (
-    <View style={styles.root} onLayout={onLayoutRootView}>
-      <AuthProvider>
-        <RootNavigator />
-      </AuthProvider>
-    </View>
+    <SafeAreaProvider>
+      <View style={styles.root} onLayout={onLayoutRootView}>
+        <AuthProvider>
+          <RootNavigator />
+        </AuthProvider>
+      </View>
+    </SafeAreaProvider>
   );
 }
 

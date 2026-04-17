@@ -62,21 +62,28 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Initialise: listen to auth state changes
   useEffect(() => {
-    supabase.auth.getSession().then(async ({ data: { session: s } }) => {
-      setSession(s);
-      if (s?.user) {
-        const p = await loadProfile(s.user.id);
-        setProfile(p);
-        // Register / refresh push token
-        if (p) {
-          const token = await registerForPushNotificationsAsync();
-          if (token && token !== p.expo_push_token) {
-            await savePushToken(p.id, token);
+    // Safety valve — if getSession hangs for any reason, unblock the UI
+    const timeout = setTimeout(() => setLoading(false), 8000);
+
+    supabase.auth.getSession()
+      .then(async ({ data: { session: s } }) => {
+        setSession(s);
+        if (s?.user) {
+          const p = await loadProfile(s.user.id);
+          setProfile(p);
+          if (p) {
+            const token = await registerForPushNotificationsAsync();
+            if (token && token !== p.expo_push_token) {
+              await savePushToken(p.id, token);
+            }
           }
         }
-      }
-      setLoading(false);
-    });
+      })
+      .catch((err) => console.warn('getSession error:', err))
+      .finally(() => {
+        clearTimeout(timeout);
+        setLoading(false);
+      });
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, s) => {

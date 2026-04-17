@@ -249,17 +249,17 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
   },
   backArrow: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 22,
     color: '#1A1A1A',
   },
   topBarTitle: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     fontSize: 16,
     color: '#1A1A1A',
   },
   editToggle: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 15,
     color: '#8A8A8A',
   },
@@ -293,13 +293,13 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   displayName: {
-    fontFamily: 'DM_Sans_700Bold',
+    fontFamily: 'DMSans_700Bold',
     fontSize: 22,
     color: '#1A1A1A',
     letterSpacing: -0.3,
   },
   displayEmail: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 14,
     color: '#8A8A8A',
   },
@@ -309,14 +309,14 @@ const styles = StyleSheet.create({
   },
   fieldGroup: { gap: 6 },
   fieldLabel: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     fontSize: 12,
     color: '#8A8A8A',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   input: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 16,
     color: '#1A1A1A',
     backgroundColor: '#F0EFED',
@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
     marginVertical: 24,
   },
   sectionLabel: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     fontSize: 12,
     color: '#8A8A8A',
     textTransform: 'uppercase',
@@ -347,7 +347,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
   },
   linkText: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 14,
     color: '#1A1A1A',
   },
@@ -359,7 +359,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   shareButtonText: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     fontSize: 15,
     color: '#FFFFFF',
   },
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
   signOutText: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 15,
     color: '#E05050',
   },

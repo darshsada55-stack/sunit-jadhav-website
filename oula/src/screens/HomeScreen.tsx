@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
   },
   navLogo: {
-    fontFamily: 'DM_Sans_700Bold',
+    fontFamily: 'DMSans_700Bold',
     fontSize: 20,
     color: '#1A1A1A',
     letterSpacing: -0.5,
@@ -251,13 +251,13 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   emptyTitle: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     fontSize: 18,
     color: '#1A1A1A',
     marginBottom: 4,
   },
   emptySubtitle: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 14,
     color: '#8A8A8A',
     textAlign: 'center',
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   shareButtonText: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     fontSize: 15,
     color: '#FFFFFF',
   },
@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
     borderColor: '#FAF9F7',
   },
   personName: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 13,
     color: '#1A1A1A',
     textAlign: 'center',

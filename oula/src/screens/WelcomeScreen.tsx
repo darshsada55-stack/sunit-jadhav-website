@@ -59,14 +59,14 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   logo: {
-    fontFamily: 'DM_Sans_700Bold',
+    fontFamily: 'DMSans_700Bold',
     fontSize: 52,
     color: '#1A1A1A',
     letterSpacing: -1.5,
     marginBottom: 16,
   },
   tagline: {
-    fontFamily: 'DM_Sans_400Regular',
+    fontFamily: 'DMSans_400Regular',
     fontSize: 18,
     color: '#6B6B6B',
     lineHeight: 26,
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonText: {
-    fontFamily: 'DM_Sans_500Medium',
+    fontFamily: 'DMSans_500Medium',
     fontSize: 16,
     color: '#FFFFFF',
     letterSpacing: 0.2,
