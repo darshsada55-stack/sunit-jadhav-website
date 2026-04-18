@@ -43,16 +43,9 @@ const linking = {
   ],
   config: {
     screens: {
-      // Onboarding
       Welcome: 'welcome',
-      CreateProfile: {
-        path: 'invite/:pendingInviteCode',
-      },
-      // Main
-      Home: {
-        path: 'home',
-        screens: {},
-      },
+      CreateProfile: 'invite/:pendingInviteCode',
+      Home: 'home',
     },
   },
 };
