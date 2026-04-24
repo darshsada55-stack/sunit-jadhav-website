@@ -1,116 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-inter: 'Inter', sans-serif;
-  --font-oswald: 'Oswald', sans-serif;
-  --royal-blue: #1e3a8a;
-  --deep-blue: #0d1e6e;
-  --gold: #c9a227;
-  --black: #000000;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #1e3a8a #000000;
+  scrollbar-color: #222 #000;
 }
 
 html::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
-
 html::-webkit-scrollbar-track {
-  background: #000000;
+  background: #000;
 }
-
 html::-webkit-scrollbar-thumb {
-  background: #1e3a8a;
-  border-radius: 3px;
+  background: #222;
 }
 
 body {
-  background: #000000;
-  color: #ffffff;
-  font-family: var(--font-inter);
+  background: #000;
+  color: #fff;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Gold gradient text utility */
-.text-gold-gradient {
-  background: linear-gradient(135deg, #c9a227 0%, #fde68a 50%, #c9a227 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+::selection {
+  background: rgba(200, 168, 107, 0.15);
+  color: #C8A86B;
 }
 
-/* Blue gradient text utility */
-.text-blue-gradient {
-  background: linear-gradient(135deg, #3b63f3 0%, #93b4fb 50%, #3b63f3 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Shimmer effect for gold text */
-.text-shimmer {
-  background: linear-gradient(
-    90deg,
-    #c9a227 0%,
-    #fde68a 25%,
-    #c9a227 50%,
-    #fde68a 75%,
-    #c9a227 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 3s linear infinite;
-}
-
-@keyframes shimmer {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-/* Section divider */
-.section-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #1e3a8a, #c9a227, #1e3a8a, transparent);
-}
-
-/* Blue glow border */
-.border-glow {
-  border: 1px solid rgba(30, 58, 138, 0.5);
-  box-shadow: 0 0 20px rgba(30, 58, 138, 0.2), inset 0 0 20px rgba(30, 58, 138, 0.05);
-}
-
-/* Gold accent line */
-.gold-line::before {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #c9a227, #fde68a);
-  margin-bottom: 1rem;
-}
-
-/* Hover card effect */
-.hover-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 40px rgba(30, 58, 138, 0.4);
+/* Input autofill override */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
 }

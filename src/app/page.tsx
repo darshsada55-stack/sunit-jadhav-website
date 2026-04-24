@@ -10,35 +10,15 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="bg-black">
       <Navbar />
       <Hero />
-
-      {/* Section divider */}
-      <div className="section-divider" />
-
       <About />
-
-      <div className="section-divider" />
-
       <Achievements />
-
-      <div className="section-divider" />
-
       <Gallery />
-
-      <div className="section-divider" />
-
       <Coaching />
-
-      <div className="section-divider" />
-
       <Brands />
-
-      <div className="section-divider" />
-
       <Contact />
-
       <Footer />
     </main>
   );
