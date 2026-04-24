@@ -10,17 +10,17 @@ export default function Footer() {
 
   return (
     <footer className="bg-black border-t border-white/6">
-      <div className="max-w-site mx-auto px-6 lg:px-12 py-10 lg:py-12">
+      <div className="max-w-site mx-auto px-6 lg:px-14 py-10 lg:py-12">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           {/* Brand */}
           <div>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="font-display text-base tracking-[0.25em] text-white hover:text-gold transition-colors duration-300 uppercase"
+              className="font-display text-base tracking-[0.25em] text-white hover:text-royal-400 transition-colors uppercase"
             >
               Sunit Jadhav
             </button>
-            <p className="text-[10px] tracking-[0.22em] text-white/18 uppercase mt-1">
+            <p className="text-[10px] tracking-[0.22em] text-white/20 uppercase mt-1">
               IFBB Pro · Mr. Asia 2018
             </p>
           </div>
@@ -31,7 +31,7 @@ export default function Footer() {
               <button
                 key={l}
                 onClick={() => go(l)}
-                className="text-[10px] tracking-[0.22em] text-white/25 hover:text-white uppercase transition-colors duration-200"
+                className="text-[10px] tracking-[0.22em] text-white/25 hover:text-white uppercase transition-colors"
               >
                 {l}
               </button>
@@ -45,14 +45,14 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="text-white/25 hover:text-white transition-colors duration-200"
+              className="text-white/25 hover:text-white transition-colors"
             >
               <FiInstagram size={16} />
             </a>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               aria-label="Back to top"
-              className="text-white/18 hover:text-white transition-colors duration-200"
+              className="text-white/20 hover:text-white transition-colors"
             >
               <FiArrowUp size={16} />
             </button>

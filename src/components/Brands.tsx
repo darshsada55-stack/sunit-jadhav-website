@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useInView } from 'react-intersection-observer';
 import { FiArrowRight, FiCheckCircle } from 'react-icons/fi';
 
 const collabTypes = [
@@ -29,8 +28,10 @@ type BrandForm = {
   message: string;
 };
 
+const inputClass =
+  'w-full bg-transparent border-b border-white/12 py-3 text-white text-sm placeholder-white/20 outline-none focus:border-royal-500 transition-colors duration-200';
+
 export default function Brands() {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.08 });
   const [form, setForm] = useState<BrandForm>({
     brandName: '',
     contactPerson: '',
@@ -77,14 +78,11 @@ export default function Brands() {
       });
       setSubmitted(true);
     } catch {
-      // silently handled — form submission recorded
+      // silently handled
     } finally {
       setLoading(false);
     }
   };
-
-  const inputClass =
-    'w-full bg-transparent border-b border-white/12 py-3 text-white text-sm placeholder-white/18 outline-none focus:border-gold transition-colors duration-200';
 
   const FieldError = ({ field }: { field: keyof BrandForm }) =>
     errors[field] ? (
@@ -92,66 +90,47 @@ export default function Brands() {
     ) : null;
 
   return (
-    <section id="brands" className="py-32 lg:py-44 bg-black">
-      <div ref={ref} className="max-w-site mx-auto px-6 lg:px-12">
+    <section id="brands" className="py-28 lg:py-40 bg-black">
+      <div className="max-w-site mx-auto px-6 lg:px-14">
         {/* Label */}
-        <div
-          className={`flex items-center gap-4 mb-16 lg:mb-24 transition-all duration-700 ${
-            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-        >
-          <span className="font-mono text-[10px] tracking-[0.45em] text-white/20 uppercase">005 ——</span>
-          <span className="font-mono text-[10px] tracking-[0.45em] text-white/20 uppercase">Brand Partnerships</span>
-        </div>
+        <p className="text-[10px] tracking-[0.45em] uppercase text-royal-800 mb-14 lg:mb-20">
+          005 —— Brand Partnerships
+        </p>
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28">
-          {/* Left — context */}
-          <div
-            className={`transition-all duration-700 delay-100 ${
-              inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            <h2 className="font-display text-5xl lg:text-6xl xl:text-[5.5rem] text-white leading-[0.92] tracking-tight uppercase mb-10">
+          {/* Left */}
+          <div>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white uppercase leading-[0.9] tracking-tight mb-8">
               Work With<br />
-              <span className="text-gold">Sunit</span>
+              <span className="text-royal-400">Sunit</span>
             </h2>
             <p className="text-white/45 leading-relaxed mb-10 max-w-sm text-[15px]">
-              Sunit Jadhav reaches 789K+ highly engaged fitness enthusiasts across India.
-              Partner with the country&apos;s leading IFBB Pro for campaigns that move culture.
+              789K+ highly engaged fitness followers across India. Partner with the
+              country&apos;s leading IFBB Pro for campaigns that move culture.
             </p>
 
             <div className="space-y-3 mb-12">
-              {[
-                'Brand Ambassador',
-                'Social Media Campaigns',
-                'Event Appearances',
-                'Content Creation',
-                'Competition Sponsorship',
-              ].map((t) => (
+              {collabTypes.map((t) => (
                 <div key={t} className="flex items-center gap-3 text-white/30 text-sm">
-                  <span className="w-1 h-1 rounded-full bg-gold flex-shrink-0" />
+                  <span className="w-1 h-1 bg-royal-600 flex-shrink-0" />
                   {t}
                 </div>
               ))}
             </div>
 
             <div className="pt-8 border-t border-white/8">
-              <p className="text-[10px] tracking-[0.3em] text-white/18 uppercase mb-3">
+              <p className="text-[10px] tracking-[0.3em] text-white/20 uppercase mb-3">
                 Current Sponsor
               </p>
               <p className="text-white font-medium tracking-[0.1em]">One Science Nutrition</p>
             </div>
           </div>
 
-          {/* Right — enquiry form */}
-          <div
-            className={`transition-all duration-700 delay-200 ${
-              inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
+          {/* Right — form */}
+          <div>
             {submitted ? (
               <div className="flex flex-col items-center justify-center min-h-[440px] text-center">
-                <FiCheckCircle size={36} className="text-gold mb-6" />
+                <FiCheckCircle size={36} className="text-royal-400 mb-6" />
                 <h3 className="font-display text-2xl text-white tracking-wider uppercase mb-3">
                   Enquiry Received
                 </h3>
@@ -264,17 +243,14 @@ export default function Brands() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full flex items-center justify-center gap-3 py-4 bg-white text-black text-[11px] font-semibold tracking-[0.25em] uppercase hover:bg-gold disabled:opacity-40 transition-colors duration-300 group"
+                  className="inline-flex items-center justify-center gap-3 px-9 py-4 bg-royal-700 hover:bg-royal-600 text-white text-[11px] font-semibold tracking-[0.22em] uppercase disabled:opacity-40 transition-colors group w-full"
                 >
                   {loading ? (
                     'Sending…'
                   ) : (
                     <>
                       Submit Enquiry
-                      <FiArrowRight
-                        size={13}
-                        className="group-hover:translate-x-1 transition-transform duration-200"
-                      />
+                      <FiArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
                     </>
                   )}
                 </button>

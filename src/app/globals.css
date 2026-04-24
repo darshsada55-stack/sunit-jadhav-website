@@ -1,23 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html {
   scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: #222 #000;
-}
-
-html::-webkit-scrollbar {
-  width: 4px;
-}
-html::-webkit-scrollbar-track {
-  background: #000;
-}
-html::-webkit-scrollbar-thumb {
-  background: #222;
 }
 
 body {
@@ -25,19 +11,10 @@ body {
   color: #fff;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-::selection {
-  background: rgba(200, 168, 107, 0.15);
-  color: #C8A86B;
-}
-
-/* Input autofill override */
 input:-webkit-autofill,
-input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #000 inset;
   -webkit-text-fill-color: #fff;
-  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
-  transition: background-color 5000s ease-in-out 0s;
 }

@@ -1,66 +1,58 @@
 'use client';
 
-import { FiInstagram, FiArrowDown } from 'react-icons/fi';
+import { FiInstagram } from 'react-icons/fi';
 
-const stats = [
-  { val: '789K', label: 'Instagram Followers' },
-  { val: '10+', label: 'National Titles' },
-  { val: '6×', label: 'Maharashtra Shree' },
-  { val: 'IFBB', label: 'Pro Card Holder' },
+const STATS = [
+  { value: '789K', label: 'Instagram Followers' },
+  { value: '10+',  label: 'National Titles' },
+  { value: '6×',   label: 'Maharashtra Shree' },
+  { value: 'IFBB', label: 'Pro Card Holder' },
 ];
 
 export default function Hero() {
-  const scrollTo = (id: string) =>
+  const go = (id: string) =>
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section className="relative min-h-screen flex flex-col bg-black overflow-hidden">
-      {/* Subtle top glow — barely visible */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(30,58,138,0.12),transparent_70%)]" />
-
-      {/* Main content */}
-      <div className="flex-1 flex flex-col justify-center max-w-site mx-auto w-full px-6 lg:px-12 pt-28 pb-12">
-        {/* Label */}
-        <div className="flex items-center gap-4 mb-10 lg:mb-14">
-          <span className="w-6 h-px bg-gold" />
-          <span className="font-mono text-[10px] tracking-[0.45em] text-gold uppercase">
+    <section className="min-h-screen flex flex-col bg-black">
+      {/* Content */}
+      <div className="flex-1 flex flex-col justify-center max-w-site mx-auto w-full px-6 lg:px-14 pt-24 pb-10">
+        {/* Badge */}
+        <div className="flex items-center gap-3 mb-10">
+          <span className="block w-6 h-px bg-royal-500" />
+          <span className="text-[10px] tracking-[0.4em] uppercase text-royal-400 font-medium">
             IFBB Pro Bodybuilder
           </span>
         </div>
 
-        {/* Name — the hero statement */}
-        <h1 className="font-display leading-[0.88] tracking-[-0.01em] uppercase mb-8 lg:mb-12">
-          <span className="block text-[clamp(4rem,13vw,12.5rem)] text-white">SUNIT</span>
-          <span className="block text-[clamp(4rem,13vw,12.5rem)] text-gold">JADHAV</span>
+        {/* Name */}
+        <h1 className="font-display uppercase leading-[0.88] tracking-tight mb-8 lg:mb-12">
+          <span className="block text-[clamp(3.5rem,11vw,10rem)] text-white">
+            SUNIT
+          </span>
+          <span className="block text-[clamp(3.5rem,11vw,10rem)] text-royal-400">
+            JADHAV
+          </span>
         </h1>
 
-        {/* Subtitle row */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 mb-12 lg:mb-16">
-          <p className="text-white/50 text-[11px] tracking-[0.2em] uppercase">
-            Mr. Asia 2018 — Overall Champion
-          </p>
-          <span className="hidden sm:block h-4 w-px bg-white/15" />
-          <p className="text-white/25 text-[11px] tracking-[0.2em] uppercase">
-            Mumbai, India
-          </p>
-          <span className="hidden sm:block h-4 w-px bg-white/15" />
-          <p className="text-white/25 text-[11px] tracking-[0.2em] uppercase">
-            Amateur Olympia 2021 Gold
-          </p>
+        {/* Tagline */}
+        <div className="flex flex-wrap gap-x-6 gap-y-1 mb-12">
+          <p className="text-white/50 text-xs tracking-[0.2em] uppercase">Mr. Asia 2018 — Overall Champion</p>
+          <p className="text-white/25 text-xs tracking-[0.2em] uppercase">Amateur Olympia 2021 Gold</p>
+          <p className="text-white/25 text-xs tracking-[0.2em] uppercase">Mumbai, India</p>
         </div>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">
+        <div className="flex flex-col sm:flex-row gap-3 mb-10">
           <button
-            onClick={() => scrollTo('#coaching')}
-            className="px-9 py-4 bg-white text-black text-[11px] font-semibold tracking-[0.25em] uppercase hover:bg-gold transition-colors duration-300"
+            onClick={() => go('#coaching')}
+            className="px-8 py-3.5 bg-royal-700 hover:bg-royal-600 text-white text-[11px] font-semibold tracking-[0.22em] uppercase transition-colors"
           >
             Book Coaching
           </button>
           <button
-            onClick={() => scrollTo('#about')}
-            className="px-9 py-4 border border-white/15 text-white text-[11px] font-medium tracking-[0.2em] uppercase hover:border-white/40 hover:bg-white/5 transition-all duration-300"
+            onClick={() => go('#about')}
+            className="px-8 py-3.5 border border-white/15 text-white/70 hover:border-white/40 hover:text-white text-[11px] font-medium tracking-[0.2em] uppercase transition-colors"
           >
             My Story
           </button>
@@ -71,38 +63,25 @@ export default function Hero() {
           href="https://www.instagram.com/sunitjadhavofficial"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 text-white/25 hover:text-white/60 transition-colors group"
+          className="inline-flex items-center gap-3 text-white/25 hover:text-white/60 transition-colors"
         >
           <FiInstagram size={14} />
           <span className="text-[11px] tracking-[0.15em]">@sunitjadhavofficial</span>
-          <span className="text-gold text-[11px] font-semibold tracking-wider">789K</span>
+          <span className="text-royal-400 text-[11px] font-semibold ml-1">789K</span>
         </a>
       </div>
 
       {/* Stats bar */}
-      <div className="border-t border-white/5 max-w-site mx-auto w-full px-6 lg:px-12 py-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-white/5">
-          {stats.map((s) => (
-            <div key={s.label} className="lg:px-10 first:pl-0 last:pr-0">
-              <p className="font-display text-2xl lg:text-3xl text-white tracking-tight">
-                {s.val}
-              </p>
-              <p className="text-[10px] tracking-[0.22em] text-white/25 uppercase mt-1">
-                {s.label}
-              </p>
+      <div className="border-t border-white/5 max-w-site mx-auto w-full px-6 lg:px-14 py-7">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-white/5">
+          {STATS.map((s) => (
+            <div key={s.label} className="lg:px-10 first:lg:pl-0">
+              <p className="font-display text-2xl lg:text-3xl text-white">{s.value}</p>
+              <p className="text-[10px] tracking-[0.2em] text-white/25 uppercase mt-1">{s.label}</p>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Scroll hint */}
-      <button
-        onClick={() => scrollTo('#about')}
-        className="absolute bottom-8 right-8 hidden lg:flex items-center gap-2 text-white/15 hover:text-white/40 transition-colors"
-        aria-label="Scroll down"
-      >
-        <FiArrowDown size={16} />
-      </button>
     </section>
   );
 }

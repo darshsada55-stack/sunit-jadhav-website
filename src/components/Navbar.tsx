@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { FiInstagram, FiMenu, FiX } from 'react-icons/fi';
 
-const links = [
+const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Achievements', href: '#achievements' },
   { label: 'Gallery', href: '#gallery' },
@@ -14,42 +14,45 @@ const links = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const handler = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', handler, { passive: true });
+    return () => window.removeEventListener('scroll', handler);
   }, []);
 
-  const go = (href: string) => {
-    setOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+  const navigate = (href: string) => {
+    setMenuOpen(false);
+    setTimeout(() => {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    }, 10);
   };
 
   return (
     <>
+      {/* Main navbar */}
       <nav
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-          scrolled ? 'bg-black/95 backdrop-blur-md border-b border-white/5' : ''
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+          scrolled ? 'bg-black/95 backdrop-blur-md border-b border-royal-900/30' : 'bg-transparent'
         }`}
       >
-        <div className="max-w-site mx-auto px-6 lg:px-12 h-16 lg:h-20 flex items-center justify-between">
+        <div className="max-w-site mx-auto px-6 lg:px-14 flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="font-display text-base lg:text-lg tracking-[0.25em] text-white hover:text-gold transition-colors duration-300"
+            className="font-display tracking-[0.22em] text-base lg:text-lg text-white hover:text-royal-400 transition-colors"
           >
             SUNIT JADHAV
           </button>
 
-          {/* Desktop nav */}
+          {/* Desktop links */}
           <div className="hidden lg:flex items-center gap-10">
-            {links.map((l) => (
+            {NAV_LINKS.map((l) => (
               <button
                 key={l.href}
-                onClick={() => go(l.href)}
-                className="text-[11px] tracking-[0.18em] text-white/40 hover:text-white uppercase transition-colors duration-200"
+                onClick={() => navigate(l.href)}
+                className="text-[11px] tracking-[0.18em] uppercase text-white/40 hover:text-white transition-colors"
               >
                 {l.label}
               </button>
@@ -58,52 +61,60 @@ export default function Navbar() {
               href="https://www.instagram.com/sunitjadhavofficial"
               target="_blank"
               rel="noopener noreferrer"
+              className="text-white/30 hover:text-royal-400 transition-colors"
               aria-label="Instagram"
-              className="text-white/30 hover:text-white transition-colors duration-200 ml-2"
             >
               <FiInstagram size={16} />
             </a>
           </div>
 
-          {/* Mobile toggle */}
+          {/* Mobile hamburger */}
           <button
-            onClick={() => setOpen((o) => !o)}
-            className="lg:hidden text-white/50 hover:text-white transition-colors p-1"
-            aria-label="Toggle menu"
+            className="lg:hidden text-white/60 hover:text-white transition-colors p-1"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open menu"
           >
-            {open ? <FiX size={20} /> : <FiMenu size={20} />}
+            <FiMenu size={22} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile menu — full screen overlay */}
-      <div
-        className={`fixed inset-0 z-40 bg-black flex flex-col px-8 pb-12 lg:hidden transition-all duration-300 ${
-          open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
-      >
-        <div className="flex-1 flex flex-col justify-center gap-8">
-          {links.map((l) => (
+      {/* Mobile full-screen menu — conditionally rendered, no CSS opacity trick */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-50 bg-black flex flex-col px-8 py-8 lg:hidden">
+          <div className="flex justify-end mb-12">
             <button
-              key={l.href}
-              onClick={() => go(l.href)}
-              className="text-left font-display text-5xl tracking-wider text-white hover:text-gold transition-colors duration-200 uppercase"
+              onClick={() => setMenuOpen(false)}
+              className="text-white/40 hover:text-white transition-colors p-1"
+              aria-label="Close menu"
             >
-              {l.label}
+              <FiX size={24} />
             </button>
-          ))}
+          </div>
+
+          <nav className="flex flex-col gap-8 flex-1 justify-center">
+            {NAV_LINKS.map((l) => (
+              <button
+                key={l.href}
+                onClick={() => navigate(l.href)}
+                className="text-left font-display text-4xl sm:text-5xl tracking-wider uppercase text-white hover:text-royal-400 transition-colors"
+              >
+                {l.label}
+              </button>
+            ))}
+          </nav>
+
+          <a
+            href="https://www.instagram.com/sunitjadhavofficial"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 text-white/30 hover:text-white transition-colors mt-8"
+          >
+            <FiInstagram size={18} />
+            <span className="text-sm tracking-widest">@sunitjadhavofficial</span>
+          </a>
         </div>
-        <a
-          href="https://www.instagram.com/sunitjadhavofficial"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 text-white/30 hover:text-white transition-colors"
-        >
-          <FiInstagram size={18} />
-          <span className="text-sm tracking-[0.15em]">@sunitjadhavofficial</span>
-          <span className="text-gold text-sm font-semibold ml-1">789K</span>
-        </a>
-      </div>
+      )}
     </>
   );
 }
